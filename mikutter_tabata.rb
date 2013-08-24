@@ -6,10 +6,10 @@ Plugin.create(:mikutter_tabata) do
 		name: '田端でバタバタ',
 		condition: lambda{ |opt| true },
 		visible: true,
-		role: :postbox) do |opt|e
-	) do
+		role: :postbox) do |opt|
+	do
 		strs = "田端でバタバタ"
-		Post.primary_service.update(:message => strs)
+		Plugin.call(:update, nil, [Message.new(:message => strs, :system => true)])
 	end
 end
 
