@@ -2,14 +2,13 @@
 
 Plugin.create(:mikutter_tabata) do
 	command(
-		:mikutter_tabata_cmd,
+		:post_tabata,
 		name: '田端でバタバタ',
-		condition: lambda{ |opt| true },
+		condition: -> _ {true},
 		visible: true,
-		role: :postbox) do |opt|
-	do
-		strs = "田端でバタバタ"
-		Plugin.call(:update, nil, [Message.new(:message => strs, :system => true)])
+		role: :timeline
+		) do
+		Service.primary.update(:message => "田端でバタバタ")
 	end
 end
 
