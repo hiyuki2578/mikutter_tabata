@@ -5,7 +5,7 @@ Plugin.create(:mikutter_tabata) do
 		:post_tabata,
 		name: '田端でバタバタ',
 		condition: -> _ {true},
-		visible: true,
+		visible: false,
 		role: :timeline
 		) do
 		Service.primary.update(:message => "田端でバタバタ")
